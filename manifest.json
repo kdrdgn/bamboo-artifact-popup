@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "bamboo artifact popup",
+  "description": "you don't need download artifact app-versions.json anymore!",
+  "version": "1.0",
+  "web_accessible_resources": ["mokum.extended.init.js"],
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "all_frames": true,
+      "matches": ["https://bamboo.sony.eu/*"],
+      "css": ["bamboo-artifact.css"],
+      "js": [
+        "bamboo-artifact.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "https://bamboo.sony.eu/*"
+  ]
+}
