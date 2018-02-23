@@ -10,13 +10,16 @@
       "all_frames": true,
       "matches": ["https://bamboo.sony.eu/*"],
       "css": ["bamboo-artifact.css"],
-      "js": [
-        "bamboo-artifact.js"
-      ]
+      "js": ["bamboo-artifact.js"]
     }
   ],
+  "background": {
+    "scripts": ["eventPage.js"],
+    "persistent": false
+  },
   "permissions": [
     "activeTab",
+    "webNavigation",
     "https://bamboo.sony.eu/*"
   ]
 }
