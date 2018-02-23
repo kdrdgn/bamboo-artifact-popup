@@ -10,9 +10,7 @@
       "all_frames": true,
       "matches": ["https://bamboo.sony.eu/*"],
       "css": ["bamboo-artifact.css"],
-      "js": [
-        "bamboo-artifact.js"
-      ]
+      "js": ["bamboo-artifact.js"]
     }
   ],
   "permissions": [
