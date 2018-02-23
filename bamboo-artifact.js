@@ -10,8 +10,19 @@ function refreshTooltip() {
     });
 }
 
-chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-  setTimeout(refreshTooltip, 500);
-});
+var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+var tabs = document.querySelector('.aui-tabs.horizontal-tabs.aui-tabs-disabled');
 
+var observer = new MutationObserver(function (mutations) {
+  for (var mutationIdx in mutations) {
+    var mutation = mutations[mutationIdx];
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      if (!tabs.classList.contains('loading')) {
+        refreshTooltip();
+      }
+    }
+  }
+})
+
+observer.observe(tabs, { attributes: true });
 refreshTooltip();
